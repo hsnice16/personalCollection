@@ -1,3 +1,3 @@
 ## personalCollection
 
-![pC](src/assets/Images/landing-page-3.png)
+![pC](src/Assets/Images/landing-page-3.png)
