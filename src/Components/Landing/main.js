@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 
-import horseRunningOne from '../../assets/Videos/horse-running.mp4';
-import horseRunningTwo from '../../assets/Videos/horse-running.webm';
-
 import landingPageOne from '../../assets/Images/landing-page-1.jpg';
 import landingPageTwo from '../../assets/Images/landing-page-2.jpg';
 
 const Main = () => {
+
+    const horseRunningOne = 
+    "https://firebasestorage.googleapis.com/v0/b/personal-collection-589d3.appspot.com/o/landingPage%2Fhorse-running.mp4?alt=media&token=485681a7-6d31-4ea3-9b19-813edbceed2a";
+    const horseRunningTwo = 
+    "https://firebasestorage.googleapis.com/v0/b/personal-collection-589d3.appspot.com/o/landingPage%2Fhorse-running.webm?alt=media&token=b0f258ff-aa01-4698-8cd9-d30090a71995";
 
     useEffect(() => {
         document.title = 'personalCollection';
@@ -25,7 +27,7 @@ const Main = () => {
                     <div className="div-video">
                         <video className="div-video-content" autoPlay loop muted>
                             <source src={horseRunningOne} type="video/mp4" />
-                            <source src={horseRunningTwo} type="video/mp4" />
+                            <source src={horseRunningTwo} type="video/webm" />
                             Your browser either does not support mp4 video type
                             or video tag.
                         </video>
