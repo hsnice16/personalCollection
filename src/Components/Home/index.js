@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import { withAuthorization } from '../../Session/index';
+import { withAuthorization } from '../../session/index';
 
-import folderImg from '../../Assets/Images/home-upload.svg';
-import arrow from '../../Assets/Images/arrow.PNG';
+import folderImg from '../../assets/Images/home-upload.svg';
+import arrow from '../../assets/Images/arrow.PNG';
 
 const HomePage = () => {
 
     useEffect(() => {
-        document.title = 'personalCollection / home';
+        document.title = 'home | personalCollection';
     });
 
     return (

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 
-import horseRunningOne from '../../Assets/Videos/horse-running.mp4';
-import horseRunningTwo from '../../Assets/Videos/horse-running.webm';
+import horseRunningOne from '../../assets/Videos/horse-running.mp4';
+import horseRunningTwo from '../../assets/Videos/horse-running.webm';
 
-import landingPageOne from '../../Assets/Images/landing-page-1.jpg';
-import landingPageTwo from '../../Assets/Images/landing-page-2.jpg';
+import landingPageOne from '../../assets/Images/landing-page-1.jpg';
+import landingPageTwo from '../../assets/Images/landing-page-2.jpg';
 
 const Main = () => {
 

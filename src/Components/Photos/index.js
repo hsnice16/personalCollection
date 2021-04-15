@@ -1,5 +1,5 @@
 import React from 'react';
-import { withAuthorization } from '../../Session/index';
+import { withAuthorization } from '../../session/index';
 
 import Main from './main';
 

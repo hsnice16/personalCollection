@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 // import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../../Firebase/index';
+import { FirebaseContext } from '../../firebase/index';
 
 // import * as ROUTES from '../../Constants/routes';
 
 import {CreateAccountLink} from '../CreateAccount/index';
-import forgotPassword from '../../Assets/Images/forgot-password.svg';
+import forgotPassword from '../../assets/Images/forgot-password.svg';
 
 const Main = () => {
 
@@ -17,7 +17,7 @@ const Main = () => {
     // const history = useHistory();
 
     useEffect(() => {
-        document.title = 'personalCollection / forgetPassword';
+        document.title = 'forgetPassword | personalCollection';
     });
 
     async function changePassword() {

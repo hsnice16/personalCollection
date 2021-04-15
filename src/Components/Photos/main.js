@@ -6,7 +6,7 @@ const Main = () => {
     const type = /image\/*/;
 
     useEffect(() => {
-        document.title = 'personalCollection / photos';
+        document.title = 'photos | personalCollection';
     });
 
     function handleChange(e) {

@@ -1,21 +1,21 @@
 import React,{ useEffect, useContext } from 'react';
 import AuthUserContext from './context';
-import { FirebaseContext } from '../Firebase/index';
+import { FirebaseContext } from '../firebase/index';
 
-import * as ROUTES from '../Constants/routes';
+import * as ROUTES from '../constants/routes';
 import { useHistory } from 'react-router-dom';
 
 const withAuthorization = Component => {
 
     return props => { 
         const history = useHistory();
-        const Firebase = useContext(FirebaseContext);
+        const { auth } = useContext(FirebaseContext);
         const authUser = useContext(AuthUserContext);
 
         const condition = authUser => !!authUser ;
 
         useEffect(() => {
-            const unSubscribe = Firebase.auth.onAuthStateChanged(
+            const unSubscribe = auth.onAuthStateChanged(
                 authUser => {
 
                     if(!condition(authUser)) {

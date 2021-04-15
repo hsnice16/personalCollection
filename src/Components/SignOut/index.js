@@ -1,16 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../../Firebase/index';
+import { FirebaseContext } from '../../firebase/index';
 
-import * as ROUTES from '../../Constants/routes';
+import * as ROUTES from '../../constants/routes';
 
 const SignOut = () => {
 
-    const Firebase = useContext(FirebaseContext);
+    const { auth } = useContext(FirebaseContext);
     const history = useHistory();
 
     const handleSignOut = () => {
-        Firebase.auth.signOut();
+        auth.signOut();
         history.push(ROUTES.LANDING);
     }
 

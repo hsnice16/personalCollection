@@ -1,11 +1,11 @@
 import React,{ useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FirebaseContext } from '../../Firebase/index';
+import { FirebaseContext } from '../../firebase/index';
 import { SignInLink } from '../SignIn/index';
 
-import * as ROUTES from '../../Constants/routes';
-import createAccount from '../../Assets/Images/create-account.svg';
+import * as ROUTES from '../../constants/routes';
+import createAccount from '../../assets/Images/create-account.svg';
 
 const Main = () => {
 
@@ -17,28 +17,27 @@ const Main = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const Firebase = useContext(FirebaseContext);
+    const { auth, firestore } = useContext(FirebaseContext);
     const history = useHistory();
 
     useEffect(() => {
-        document.title = 'personalCollection / createAccount';
+        document.title = 'createAccount | personalCollection';
     });
 
     async function createUser() {
         setLoading(true);
 
         try {
-            const authUser = await Firebase.auth
-                                            .createUserWithEmailAndPassword(
-                                                    email, 
-                                                    passwordOne
-                                            );
-            await Firebase.firestore.doc(`users/${authUser.user.uid}`).set(
-                                            {
-                                                firstname, 
-                                                lastname, 
-                                                email
-                                            });    
+            const authUser = await auth.createUserWithEmailAndPassword(
+                                            email, 
+                                            passwordOne
+                                    );
+            await firestore.doc(`users/${authUser.user.uid}`)
+                            .set({
+                                    firstname, 
+                                    lastname, 
+                                    email
+                                });    
 
             setFirstName('');
             setLastName('');

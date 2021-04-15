@@ -1,7 +1,7 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 
-import landingPageThree from '../../Assets/Images/landing-page-3.png';
+import landingPageThree from '../../assets/Images/landing-page-3.png';
 
 const Footer = () => {
     return (
@@ -41,6 +41,7 @@ const Footer = () => {
             </div>
             <div className="footer-d-img">
                 <img src={landingPageThree} alt="brand logo" />
+                <small>&#169; 2021, <br/>All rights reserved.</small>
             </div>
         </footer>
     )

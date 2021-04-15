@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../../Firebase/index';
+import { FirebaseContext } from '../../firebase/index';
 
-import * as ROUTES from '../../Constants/routes';
+import * as ROUTES from '../../constants/routes';
 import { PasswordForgetLink } from '../PasswordForget/index';
 import { CreateAccountLink } from '../CreateAccount/index';
 
-import signIn from '../../Assets/Images/sign-in.svg';
+import signIn from '../../assets/Images/sign-in.svg';
 
 const Main = () => {
 
@@ -15,22 +15,22 @@ const Main = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const Firebase = useContext(FirebaseContext);
+    const { auth, firebase } = useContext(FirebaseContext);
     const history = useHistory();
 
     useEffect(() => {
-        document.title = 'personalCollection / signIn';
+        document.title = 'signIn | personalCollection';
     });
 
     async function signInUser() {
         setLoading(true);
         
         try {
-            await Firebase.auth.signInWithEmailAndPassword(
+            await auth.signInWithEmailAndPassword(
                 email, 
                 password
             );
-            await Firebase.auth.setPersistence(Firebase.firebase.auth.Auth.Persistence.SESSION);
+            await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
             
             setEmail('');
             setPassword('');

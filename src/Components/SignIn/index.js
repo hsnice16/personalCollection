@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as ROUTES from '../../Constants/routes';
+import * as ROUTES from '../../constants/routes';
 import Main from './main';
 
 const SignInPage = () => (
