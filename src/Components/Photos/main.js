@@ -17,6 +17,7 @@ const Main = () => {
         if(selected && selected.type === type) {
             setFile(selected);
         console.log(selected);
+        console.log(file);
         }
     }
 
