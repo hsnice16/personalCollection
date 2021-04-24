@@ -1,9 +1,11 @@
 import React,{ useEffect, useState } from 'react'
+import { BsFilePlus } from "react-icons/bs";
 
 const Main = () => {
 
     const [file, setFile] = useState(null);
-    const type = /image\/*/;
+    const [error, setError] = useState('');
+    const validType = /^image\/*/;
 
     useEffect(() => {
         document.title = 'photos | personalCollection';
@@ -11,13 +13,17 @@ const Main = () => {
 
     function handleChange(e) {
         let selected = e.target.files[0];
-        console.log(selected.type);
-        console.log(type);
-        console.log(selected);
-        if(selected && selected.type === type) {
-            setFile(selected);
-        console.log(selected);
-        console.log(file);
+        if (selected) {
+
+            if (validType.test(selected.type)) {
+                setFile(selected);
+                setError('');
+            } else {
+                setFile(null);
+                setError('Please select an image file');
+            }
+        } else {
+            setFile(null);
         }
     }
 
@@ -25,9 +31,17 @@ const Main = () => {
         <main className='min-h-100 main-photo-container'>
             <section>
                 <h2 className="font-s-2">Your Pictures</h2>
-                <form className="">
-                    <input type="file" accept="image/*" onChange={handleChange}/>
-                </form>
+                <div className="div-file-chooser">
+                    <input type="file" id="photo-picker" accept="image/*" onChange={handleChange}/>
+                    <label htmlFor="photo-picker"><BsFilePlus className="file-plus" /></label>
+                </div>
+                {
+                    error && 
+                    <div className="warning-div font-s-1 div-p-1 pad-1">
+                        {error}
+                    </div>
+                }
+
                 <div className="photo-container">
 
                 </div>
