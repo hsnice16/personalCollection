@@ -1,14 +1,14 @@
-import React from 'react';
-import { withAuthorization } from '../../session/index';
+import React from "react";
+import { withAuthorization } from "../../session/index";
 
-import Main from './main';
+import Main from "./main";
 
 const PhotosPage = () => {
-    return (
-        <>
-            <Main />
-        </>
-    )
-}
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
 
 export default withAuthorization(PhotosPage);

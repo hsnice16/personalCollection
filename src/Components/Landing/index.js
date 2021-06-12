@@ -1,13 +1,12 @@
-import React from 'react';
-import Main from './main';
+import React from "react";
+import Main from "./main";
 
 const LandingPage = () => {
-
-    return (
-        <>   
-            <Main />
-        </>
-    )
-}
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
 
 export default LandingPage;

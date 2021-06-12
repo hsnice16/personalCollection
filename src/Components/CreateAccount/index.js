@@ -1,18 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Main from './main';
-import * as ROUTES from '../../constants/routes';
+import Main from "./main";
+import * as ROUTES from "../../constants/routes";
 
 const CreateAccountPage = () => (
-    <>
-        <Main />
-    </>
+  <>
+    <Main />
+  </>
 );
 
-
 const CreateAccountLink = () => (
-    <p>first time here ? <Link to={ROUTES.CREATE_ACCOUNT}>Create Account</Link></p>
+  <p>
+    first time here ? <Link to={ROUTES.CREATE_ACCOUNT}>Create Account</Link>
+  </p>
 );
 
 export default CreateAccountPage;
