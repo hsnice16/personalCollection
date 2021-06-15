@@ -14,6 +14,8 @@ const Main = () => {
   const [allImages, setAllImages] = useState([]);
   const [showButtons, setShowButtons] = useState(false);
   const [listId, setListId] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [deleting, setDeleting] = useState(false);
   // const [shareURL, setShareURL] = useState("");
 
   const validType = /^image\/*/;
@@ -34,6 +36,7 @@ const Main = () => {
           tempAllImages.push({ ...doc.data(), id: doc.id })
         );
         setAllImages(tempAllImages);
+        setLoading(false);
       });
 
     return () => unsub();
@@ -99,6 +102,7 @@ const Main = () => {
 
   const handleDeleteBtnClick = async (fileNameToDelete) => {
     try {
+      setDeleting(true);
       await storage.ref().child(`images/${fileNameToDelete}`).delete();
 
       await firestore
@@ -109,6 +113,8 @@ const Main = () => {
         .delete();
     } catch (error) {
       setError(error);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -138,67 +144,89 @@ const Main = () => {
             <div>Add File</div>
           </label>
         </div>
-        {error && (
-          <div className="error-container">
-            <Error error={error} />
-          </div>
-        )}
-
-        {uploading && (
+        {loading ? (
           <div className="loading pad-2" role="status">
             <div className="circle circle1 list-item-inline"></div>
             <div className="circle circle2 list-item-inline"></div>
             <div className="circle circle3 list-item-inline"></div>
             <br />
             <br />
-            <div>Uploading&nbsp;&nbsp;{progress}%...</div>
+            <div>Getting&nbsp;&nbsp;pics...</div>
           </div>
-        )}
-
-        <ul className="photo-container">
-          {allImages &&
-            allImages.map((image) => (
-              <li
-                key={image.id}
-                onMouseOver={() => {
-                  setShowButtons(true);
-                  setListId(image.id);
-                }}
-                onMouseOut={() => {
-                  setShowButtons(false);
-                  setListId("");
-                }}
-              >
-                <div
-                  className={`div-btn-container ${
-                    showButtons && listId === image.id
-                      ? ""
-                      : "div-btn-container-visiblity"
-                  }`}
-                >
-                  <button
-                    className="btn-delete"
-                    onClick={() => handleDeleteBtnClick(image.name)}
+        ) : (
+          <>
+            {" "}
+            {error && (
+              <div className="error-container">
+                <Error error={error} />
+              </div>
+            )}
+            {uploading && (
+              <div className="loading pad-2" role="status">
+                <div className="circle circle1 list-item-inline"></div>
+                <div className="circle circle2 list-item-inline"></div>
+                <div className="circle circle3 list-item-inline"></div>
+                <br />
+                <br />
+                <div>Uploading&nbsp;&nbsp;{progress}%...</div>
+              </div>
+            )}
+            {deleting && (
+              <div className="loading pad-2" role="status">
+                <div className="circle circle1 list-item-inline"></div>
+                <div className="circle circle2 list-item-inline"></div>
+                <div className="circle circle3 list-item-inline"></div>
+                <br />
+                <br />
+                <div>Deleting...</div>
+              </div>
+            )}
+            <ul className="photo-container">
+              {allImages &&
+                allImages.map((image) => (
+                  <li
+                    key={image.id}
+                    onMouseOver={() => {
+                      setShowButtons(true);
+                      setListId(image.id);
+                    }}
+                    onMouseOut={() => {
+                      setShowButtons(false);
+                      setListId("");
+                    }}
                   >
-                    <MdDeleteForever className="svg" />
-                  </button>
-                  <button
-                    className="btn-share"
-                    onClick={() => handleShareBtnClick(image.url)}
-                  >
-                    <BiShareAlt className="svg" />
-                  </button>
-                </div>
-                <img
-                  src={image.url}
-                  alt={`${image.name}`}
-                  className={`${
-                    showButtons && listId === image.id ? "img-opacity" : ""
-                  }`}
-                />
-              </li>
-            ))}
-        </ul>
+                    <div
+                      className={`div-btn-container ${
+                        showButtons && listId === image.id
+                          ? ""
+                          : "div-btn-container-visiblity"
+                      }`}
+                    >
+                      <button
+                        className="btn-delete"
+                        onClick={() => handleDeleteBtnClick(image.name)}
+                      >
+                        <MdDeleteForever className="svg" />
+                      </button>
+                      <button
+                        className="btn-share"
+                        onClick={() => handleShareBtnClick(image.url)}
+                      >
+                        <BiShareAlt className="svg" />
+                      </button>
+                    </div>
+                    <img
+                      src={image.url}
+                      alt={`${image.name}`}
+                      className={`${
+                        showButtons && listId === image.id ? "img-opacity" : ""
+                      }`}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </>
+        )}{" "}
       </section>
     </main>
   );

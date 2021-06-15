@@ -13,7 +13,7 @@ const Footer = () => {
             <li className="list-item-inline">
               <SocialIcon url="https://github.com/hsnice16" target="_blank" />
             </li>
-            <li className="list-item-inline">
+            {/* <li className="list-item-inline">
               <SocialIcon
                 url="https://www.linkedin.com/in/hsnice16/"
                 target="_blank"
@@ -21,10 +21,10 @@ const Footer = () => {
             </li>
             <li className="list-item-inline">
               <SocialIcon url="https://twitter.com/hsnice16" target="_blank" />
-            </li>
+            </li> */}
           </ul>
         </div>
-        <div>
+        {/* <div>
           <h3>Credits: </h3>
           <ul className="list-non-bullet">
             <li className="list-item-inline">
@@ -56,7 +56,7 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
       <div className="footer-d-img">
         <img src={landingPageThree} alt="brand logo" />

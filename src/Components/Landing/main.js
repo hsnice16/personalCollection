@@ -57,12 +57,14 @@ const Main = () => {
             />
           </div>
         </div>
-        {/* <div className="col2">
+        <div className="col2">
           <h1 className="font-s-2 pad-2 pad-1-0">
-            You can collect your pics at one place{" "}
-            <span className="span">Too</span>.
+            {/* You can collect your pics at one place{" "}
+            <span className="span">Too</span>. */}
+            And Can share with others from&nbsp;
+            <span className="span">Anywhere</span>
           </h1>
-        </div> */}
+        </div>
       </section>
     </main>
   );
