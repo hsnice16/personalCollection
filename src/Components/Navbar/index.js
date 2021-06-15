@@ -34,13 +34,8 @@ const Navbar = () => {
               Create Account
             </Link>
           )}
-          {[ROUTES.HOME, ROUTES.VIDEOS, ROUTES.PHOTOS].includes(
-            location.pathname
-          ) && (
+          {[ROUTES.HOME, ROUTES.PHOTOS].includes(location.pathname) && (
             <>
-              <Link to={ROUTES.VIDEOS} className="n-d-2-link-1">
-                Videos
-              </Link>
               <Link to={ROUTES.PHOTOS} className="n-d-2-link-2">
                 Photos
               </Link>

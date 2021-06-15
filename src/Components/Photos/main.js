@@ -12,6 +12,8 @@ const Main = () => {
   const [progress, setProgress] = useState("");
   const [uploading, setUploading] = useState(false);
   const [allImages, setAllImages] = useState([]);
+  const [showButtons, setShowButtons] = useState(false);
+  const [listId, setListId] = useState("");
   // const [shareURL, setShareURL] = useState("");
 
   const validType = /^image\/*/;
@@ -156,14 +158,44 @@ const Main = () => {
         <ul className="photo-container">
           {allImages &&
             allImages.map((image) => (
-              <li key={image.id}>
-                <button onClick={() => handleDeleteBtnClick(image.name)}>
-                  <MdDeleteForever />
-                </button>
-                <button onClick={() => handleShareBtnClick(image.url)}>
-                  <BiShareAlt />
-                </button>
-                <img src={image.url} alt={`${image.name}`} />
+              <li
+                key={image.id}
+                onMouseOver={() => {
+                  setShowButtons(true);
+                  setListId(image.id);
+                }}
+                onMouseOut={() => {
+                  setShowButtons(false);
+                  setListId("");
+                }}
+              >
+                <div
+                  className={`div-btn-container ${
+                    showButtons && listId === image.id
+                      ? ""
+                      : "div-btn-container-visiblity"
+                  }`}
+                >
+                  <button
+                    className="btn-delete"
+                    onClick={() => handleDeleteBtnClick(image.name)}
+                  >
+                    <MdDeleteForever className="svg" />
+                  </button>
+                  <button
+                    className="btn-share"
+                    onClick={() => handleShareBtnClick(image.url)}
+                  >
+                    <BiShareAlt className="svg" />
+                  </button>
+                </div>
+                <img
+                  src={image.url}
+                  alt={`${image.name}`}
+                  className={`${
+                    showButtons && listId === image.id ? "img-opacity" : ""
+                  }`}
+                />
               </li>
             ))}
         </ul>

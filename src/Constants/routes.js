@@ -1,6 +1,5 @@
 export const LANDING = "/";
 export const HOME = "/home";
-export const VIDEOS = "/videos";
 export const PHOTOS = "/photos";
 export const SIGN_IN = "/signin";
 export const PASSWORD_FORGET = "/password-forget";

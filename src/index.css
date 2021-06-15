@@ -11,6 +11,7 @@
   --light-grayish-navy: #7f7f9e;
   --white: #fff;
   --off-white: #f3f4f6;
+  --light-gray-600: #4b5563;
 }
 
 body {
@@ -288,6 +289,10 @@ input[type="file"] {
   background-color: var(--off-white);
 }
 
+#section-2 {
+  background-color: var(--off-white);
+}
+
 /* footer */
 .list-non-bullet {
   list-style: none;
@@ -520,10 +525,7 @@ input[type="file"]:focus + label {
   margin: 0.5rem;
   cursor: pointer;
   transition-timing-function: linear;
-}
-
-.photo-container li:hover {
-  opacity: 0.9;
+  position: relative;
 }
 
 .photo-container img {
@@ -532,4 +534,40 @@ input[type="file"]:focus + label {
   max-height: inherit;
   border-radius: 10px;
   box-shadow: 1px 1px 4px var(--light-grayish-navy);
+  position: relative;
+}
+
+.img-opacity {
+  opacity: 0.8;
+}
+
+.div-btn-container {
+  width: fit-content;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: 10;
+}
+
+.div-btn-container-visiblity {
+  display: none;
+}
+
+.div-btn-container :is(.btn-delete, .btn-share) {
+  margin: auto 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+  background-color: var(--light-gray-600);
+  border: 1px solid var(--light-gray-600);
+  border-radius: 5px;
+  color: var(--white);
+}
+
+.div-btn-container :is(.btn-delete, .btn-share):hover {
+  transform: scale(0.96);
+}
+
+.div-btn-container .svg {
+  vertical-align: bottom;
 }

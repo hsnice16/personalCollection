@@ -5,7 +5,6 @@ import { withAuthentication } from "./session/index";
 import * as ROUTES from "./constants/routes";
 
 import HomePage from "./components/Home/index";
-import VideosPage from "./components/Videos/index";
 import PhotosPage from "./components/Photos/index";
 
 import LandingPage from "./components/Landing/index";
@@ -31,7 +30,6 @@ function App() {
         <Route path={ROUTES.HOME} component={HomePage} />
         <Route path={ROUTES.SIGN_OUT} component={SignOut} />
 
-        <Route path={ROUTES.VIDEOS} component={VideosPage} />
         <Route path={ROUTES.PHOTOS} component={PhotosPage} />
       </Switch>
       <Footer />

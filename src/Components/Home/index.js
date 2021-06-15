@@ -40,7 +40,8 @@ const HomePage = () => {
         <div className="div-home-arrow">
           <img src={arrow} alt="arrow" />
           <div>
-            upload <span>videos</span> or <span>photos</span>
+            {/* upload <span>videos</span> or <span>photos</span> */}
+            upload <span>photos</span>
           </div>
         </div>
       </div>

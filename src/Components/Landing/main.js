@@ -12,7 +12,7 @@ const Main = () => {
 
   return (
     <main>
-      <section
+      {/* <section
         id="section-1"
         className="min-h-50 pad-2 display-grid grid-t-c-bs-2"
       >
@@ -30,11 +30,17 @@ const Main = () => {
             </video>
           </div>
         </div>
-      </section>
+      </section> */}
       <section
         id="section-2"
         className="min-h-50 pad-2 display-grid grid-t-c-bs-2"
       >
+        <div className="col2">
+          <h1 className="font-s-2 pad-2 pad-1-0">
+            <span className="span">Now</span>, You can collect your pics at one
+            place.
+          </h1>
+        </div>
         <div className="col1 position-rel pad-2 pad-s-0">
           <div className="div-card position-rel animation-down-5">
             <img
@@ -51,12 +57,12 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="col2">
+        {/* <div className="col2">
           <h1 className="font-s-2 pad-2 pad-1-0">
             You can collect your pics at one place{" "}
             <span className="span">Too</span>.
           </h1>
-        </div>
+        </div> */}
       </section>
     </main>
   );
