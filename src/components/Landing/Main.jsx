@@ -39,7 +39,7 @@ const Main = () => {
       >
         <div className="col2">
           <h1 className="font-s-2 pad-2 pad-1-0">
-            <span className="span">Now</span>, You can collect your pics at one
+            <span className="span">Now</span>, You can collect your pics in one
             place.
           </h1>
         </div>
