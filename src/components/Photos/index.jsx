@@ -1,7 +1,7 @@
 import React from "react";
 import { withAuthorization } from "../../session/index";
 
-import Main from "./main";
+import Main from "./Main";
 
 const PhotosPage = () => {
   return (

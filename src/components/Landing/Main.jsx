@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 
-import horseRunning from "../../assets/Videos/horse-running.mp4";
+// import horseRunning from "../../assets/Videos/horse-running.mp4";
 
 import landingPageOne from "../../assets/Images/landing-page-1.jpg";
 import landingPageTwo from "../../assets/Images/landing-page-2.jpg";
 
 const Main = () => {
   useEffect(() => {
+    document.documentElement.scrollTop = 0;
+
     document.title = "personalCollection";
   });
 

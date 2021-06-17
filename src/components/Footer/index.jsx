@@ -61,7 +61,7 @@ const Footer = () => {
       <div className="footer-d-img">
         <img src={landingPageThree} alt="brand logo" />
         <small>
-          &#169; 2021, <br />
+          &#169; {new Date(Date.now()).getFullYear()}, <br />
           All rights reserved.
         </small>
       </div>

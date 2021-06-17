@@ -12,6 +12,8 @@ const HomePage = () => {
   const { auth, firestore } = useContext(FirebaseContext);
 
   useEffect(() => {
+    document.documentElement.scrollTop = 0;
+
     document.title = "home | personalCollection";
 
     const unsub = firestore

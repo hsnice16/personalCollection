@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import * as ROUTES from "../../constants/routes";
-import Main from "./main";
+import Main from "./Main";
 
 const PasswordForgetPage = () => (
   <>
