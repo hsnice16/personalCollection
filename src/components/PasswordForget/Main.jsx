@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import { FirebaseContext } from "../../firebase/index";
 import Error from "../Error/index";
@@ -13,12 +13,6 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
 
   const Firebase = useContext(FirebaseContext);
-
-  useEffect(() => {
-    document.documentElement.scrollTop = 0;
-
-    document.title = "forgetPassword | personalCollection";
-  });
 
   async function changePassword() {
     setLoading(true);

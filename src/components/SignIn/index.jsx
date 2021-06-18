@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import * as ROUTES from "../../constants/routes";
 import Main from "./Main";
 
-const SignInPage = () => (
-  <>
-    <Main />
-  </>
-);
+const SignInPage = () => {
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+
+    document.title = "signIn | personalCollection";
+  }, []);
+
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
 
 const SignInLink = () => (
   <p>

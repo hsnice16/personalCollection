@@ -29,10 +29,6 @@ const Main = () => {
   const { getCookie } = useContext(CookieContext);
 
   useEffect(() => {
-    document.documentElement.scrollTop = 0;
-
-    document.title = "photos | personalCollection";
-
     const unsub = firestore
       .collection("data")
       .doc(`${getCookie()}`)

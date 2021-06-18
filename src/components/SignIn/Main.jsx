@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FirebaseContext } from "../../firebase/index";
 
@@ -20,12 +20,6 @@ const Main = () => {
   const { auth } = useContext(FirebaseContext);
   const history = useHistory();
   const { setCookie } = useContext(CookieContext);
-
-  useEffect(() => {
-    document.documentElement.scrollTop = 0;
-
-    document.title = "signIn | personalCollection";
-  });
 
   async function signInUser() {
     setLoading(true);

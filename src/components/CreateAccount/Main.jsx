@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 
 import { FirebaseContext } from "../../firebase/index";
@@ -28,12 +28,6 @@ const Main = () => {
 
   const { auth, firestore } = useContext(FirebaseContext);
   const history = useHistory();
-
-  useEffect(() => {
-    document.documentElement.scrollTop = 0;
-
-    document.title = "createAccount | personalCollection";
-  });
 
   async function createUser() {
     dispatch({ type: "loading", payload: true });

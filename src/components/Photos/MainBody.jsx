@@ -40,7 +40,16 @@ const MainBody = ({
           {state.uploading && (
             <ProgressBar uploadingPic={true} progress={state.progress} />
           )}
-          {state.deleting && <ProgressBar deletingPic={true} />}
+          {state.deleting && (
+            <div
+              className="div-modal-container"
+              style={{ top: document.documentElement.scrollTop }}
+            >
+              <div className="div-modal">
+                <ProgressBar deletingPic={true} />
+              </div>
+            </div>
+          )}
           <ul className="photo-container">
             {state.allImages &&
               state.allImages.map((image) => (

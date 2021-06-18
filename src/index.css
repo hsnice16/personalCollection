@@ -572,3 +572,28 @@ input[type="file"]:focus + label {
 .div-btn-container .svg {
   vertical-align: bottom;
 }
+
+.div-modal {
+  position: relative;
+  background-color: var(--white);
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1.5rem;
+  border-radius: 5px;
+  color: var(--blue-gray-600);
+  box-shadow: 2px 2px 10px var(--blue-gray-300);
+  width: 20rem;
+  margin: auto;
+  margin-top: 10rem;
+  z-index: 40;
+}
+
+.div-modal-container {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 30;
+}

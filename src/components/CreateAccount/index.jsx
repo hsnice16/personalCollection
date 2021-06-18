@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Main from "./Main";
 import * as ROUTES from "../../constants/routes";
 
-const CreateAccountPage = () => (
-  <>
-    <Main />
-  </>
-);
+const CreateAccountPage = () => {
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+
+    document.title = "createAccount | personalCollection";
+  }, []);
+
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
 
 const CreateAccountLink = () => (
   <p>
