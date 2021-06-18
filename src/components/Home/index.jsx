@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { withAuthorization } from "../../session/index";
 
 import { FirebaseContext } from "../../firebase/index";
+import { CookieContext } from "../../session/index";
 
 import folderImg from "../../assets/Images/home-upload.svg";
 import arrow from "../../assets/Images/arrow.PNG";
@@ -9,7 +9,9 @@ import arrow from "../../assets/Images/arrow.PNG";
 const HomePage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const { auth, firestore } = useContext(FirebaseContext);
+  const { firestore } = useContext(FirebaseContext);
+
+  const { getCookie } = useContext(CookieContext);
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -18,7 +20,7 @@ const HomePage = () => {
 
     const unsub = firestore
       .collection("users")
-      .doc(`${auth.currentUser.uid}`)
+      .doc(`${getCookie()}`)
       .onSnapshot((snap) => {
         let { firstname, lastname } = snap.data();
         setFirstName(firstname);
@@ -26,7 +28,7 @@ const HomePage = () => {
       });
 
     return () => unsub();
-  }, [auth.currentUser.uid, firestore]);
+  }, [firestore, getCookie]);
 
   return (
     <main className="main-home-container min-h-100">
@@ -54,4 +56,4 @@ const HomePage = () => {
   );
 };
 
-export default withAuthorization(HomePage);
+export default HomePage;

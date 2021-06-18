@@ -1,5 +1,4 @@
 import React from "react";
-import { withAuthorization } from "../../session/index";
 
 import Main from "./Main";
 
@@ -11,4 +10,4 @@ const PhotosPage = () => {
   );
 };
 
-export default withAuthorization(PhotosPage);
+export default PhotosPage;

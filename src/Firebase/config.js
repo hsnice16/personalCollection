@@ -20,6 +20,6 @@ const storage = firebase.storage();
 const firestore = firebase.firestore();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-const Firebase = { auth, storage, firestore, firebase, timestamp };
+const Firebase = { auth, storage, firestore, timestamp };
 
 export default Firebase;

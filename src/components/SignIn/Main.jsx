@@ -9,6 +9,7 @@ import Error from "../Error/index";
 
 import signIn from "../../assets/Images/sign-in.svg";
 import ProgressBar from "../ProgressBar/index";
+import { CookieContext } from "../../session/index";
 
 const Main = () => {
   const [email, setEmail] = useState("");
@@ -16,8 +17,9 @@ const Main = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { auth, firebase } = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
   const history = useHistory();
+  const { setCookie } = useContext(CookieContext);
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -30,7 +32,8 @@ const Main = () => {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+
+      setCookie(auth.currentUser.uid);
 
       setEmail("");
       setPassword("");

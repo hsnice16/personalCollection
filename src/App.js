@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
-import { withAuthentication } from "./session/index";
 import * as ROUTES from "./constants/routes";
 
 import HomePage from "./components/Home/index";
@@ -16,25 +15,46 @@ import CreateAccountPage from "./components/CreateAccount/index";
 import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer/index";
 
+import PrivateRoute from "./components/PrivateRoute/index";
+import PublicRoute from "./components/PublicRoute/index";
+
 function App() {
   return (
     <Router>
       <Navbar />
 
       <Switch>
-        <Route exact path={ROUTES.LANDING} component={LandingPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+        <PublicRoute exact path={ROUTES.LANDING}>
+          <LandingPage />
+        </PublicRoute>
 
-        <Route path={ROUTES.CREATE_ACCOUNT} component={CreateAccountPage} />
-        <Route path={ROUTES.HOME} component={HomePage} />
-        <Route path={ROUTES.SIGN_OUT} component={SignOut} />
+        <PublicRoute path={ROUTES.SIGN_IN}>
+          <SignInPage />
+        </PublicRoute>
 
-        <Route path={ROUTES.PHOTOS} component={PhotosPage} />
+        <PublicRoute path={ROUTES.PASSWORD_FORGET}>
+          <PasswordForgetPage />
+        </PublicRoute>
+
+        <PublicRoute path={ROUTES.CREATE_ACCOUNT}>
+          <CreateAccountPage />
+        </PublicRoute>
+
+        <PrivateRoute path={ROUTES.HOME}>
+          <HomePage />
+        </PrivateRoute>
+
+        <PrivateRoute path={ROUTES.SIGN_OUT}>
+          <SignOut />
+        </PrivateRoute>
+
+        <PrivateRoute path={ROUTES.PHOTOS}>
+          <PhotosPage />
+        </PrivateRoute>
       </Switch>
       <Footer />
     </Router>
   );
 }
 
-export default withAuthentication(App);
+export default App;

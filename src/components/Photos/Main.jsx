@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useReducer } from "react";
 
 import { FirebaseContext } from "../../firebase/index";
+import { CookieContext } from "../../session/index";
 import MainBody from "./MainBody";
 
 const photosReducer = (state, action) => {
@@ -24,7 +25,8 @@ const Main = () => {
 
   const validType = /^image\/*/;
 
-  const { auth, firestore, storage, timestamp } = useContext(FirebaseContext);
+  const { firestore, storage, timestamp } = useContext(FirebaseContext);
+  const { getCookie } = useContext(CookieContext);
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -33,7 +35,7 @@ const Main = () => {
 
     const unsub = firestore
       .collection("data")
-      .doc(`${auth.currentUser.uid}`)
+      .doc(`${getCookie()}`)
       .collection("images")
       .orderBy("createdAt", "desc")
       .onSnapshot((snap) => {
@@ -47,7 +49,7 @@ const Main = () => {
       });
 
     return () => unsub();
-  }, [auth.currentUser.uid, firestore]);
+  }, [firestore, getCookie]);
 
   function handleChange(e) {
     dispatch({ type: "error", payload: "" });
@@ -91,7 +93,7 @@ const Main = () => {
 
               await firestore
                 .collection("data")
-                .doc(`${auth.currentUser.uid}`)
+                .doc(`${getCookie()}`)
                 .collection("images")
                 .doc(`${selected.name}`)
                 .set({
@@ -117,7 +119,7 @@ const Main = () => {
 
       await firestore
         .collection("data")
-        .doc(`${auth.currentUser.uid}`)
+        .doc(`${getCookie()}`)
         .collection("images")
         .doc(`${fileNameToDelete}`)
         .delete();
