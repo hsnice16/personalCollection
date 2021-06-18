@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 #root {
-  font-family: "Noto Sans KR", sans-serif !important;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 :root {
@@ -15,7 +15,7 @@
 }
 
 body {
-  margin: 0px !important;
+  margin: 0px;
 }
 
 nav,
@@ -25,12 +25,12 @@ footer {
 }
 
 main {
-  overflow-x: hidden !important;
+  overflow-x: hidden;
 }
 
 a {
-  text-decoration: none !important;
-  color: var(--primary-color) !important;
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 img {
@@ -39,15 +39,15 @@ img {
 }
 
 input {
-  font-size: 1.2rem !important;
+  font-size: 1.2rem;
   text-align: center;
   padding: 1%;
-  border: 1.5px solid var(--light-grayish-navy) !important;
+  border: 1.5px solid var(--light-grayish-navy);
 }
 
 input:focus {
-  outline: none !important;
-  border: 2px solid var(--light-grayish-navy) !important;
+  outline: none;
+  border: 2px solid var(--light-grayish-navy);
 }
 
 input[type="file"] {
@@ -530,39 +530,39 @@ input[type="file"]:focus + label {
 }
 
 .photo-container img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: inherit !important;
-  border-radius: 10px !important;
-  box-shadow: 1px 1px 4px var(--light-grayish-navy) !important;
-  position: relative !important;
+  width: 100%;
+  height: auto;
+  max-height: inherit;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px var(--light-grayish-navy);
+  position: relative;
 }
 
 .img-opacity {
-  opacity: 0.8 !important;
+  opacity: 0.8;
 }
 
 .div-btn-container {
-  width: fit-content !important;
-  position: absolute !important;
-  top: 40% !important;
-  left: 30% !important;
-  z-index: 10 !important;
+  width: fit-content;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: 10;
 }
 
 .div-btn-container-visiblity {
-  display: none !important;
+  display: none;
 }
 
 .div-btn-container :is(.btn-delete, .btn-share) {
-  margin: auto 0.5rem !important;
-  font-size: 1.5rem !important;
-  padding: 0.2rem 1rem !important;
-  cursor: pointer !important;
-  background-color: var(--light-gray-600) !important;
-  border: 1px solid var(--light-gray-600) !important;
-  border-radius: 5px !important;
-  color: var(--white) !important;
+  margin: auto 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+  background-color: var(--light-gray-600);
+  border: 1px solid var(--light-gray-600);
+  border-radius: 5px;
+  color: var(--white);
 }
 
 .div-btn-container :is(.btn-delete, .btn-share):hover {
