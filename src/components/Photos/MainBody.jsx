@@ -5,6 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { BiShareAlt } from "react-icons/bi";
 import Error from "../Error/index";
 import ProgressBar from "../ProgressBar/index";
+import Modal from "../Modal/index";
 
 const MainBody = ({
   state,
@@ -37,19 +38,21 @@ const MainBody = ({
               <Error error={state.error} />
             </div>
           )}
+
           {state.uploading && (
             <ProgressBar uploadingPic={true} progress={state.progress} />
           )}
-          {state.deleting && (
-            <div
-              className="div-modal-container"
-              style={{ top: document.documentElement.scrollTop }}
-            >
-              <div className="div-modal">
-                <ProgressBar deletingPic={true} />
-              </div>
-            </div>
+
+          {state.deleting && <Modal deletingPic={true} />}
+
+          {state.shareURL && (
+            <Modal
+              sharePicURL={state.shareURL}
+              dispatch={dispatch}
+              copiedToClipboard={state.copiedToClipboard}
+            />
           )}
+
           <ul className="photo-container">
             {state.allImages &&
               state.allImages.map((image) => (

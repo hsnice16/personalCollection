@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 
 import { FirebaseContext } from "../../firebase/index";
 import { CookieContext } from "../../session/index";
+
 import MainBody from "./MainBody";
 
 const photosReducer = (state, action) => {
@@ -10,8 +11,6 @@ const photosReducer = (state, action) => {
 };
 
 const Main = () => {
-  // const [shareURL, setShareURL] = useState("");
-
   const [state, dispatch] = useReducer(photosReducer, {
     error: "",
     progress: "",
@@ -21,6 +20,8 @@ const Main = () => {
     listId: "",
     loading: true,
     deleting: false,
+    shareURL: "",
+    copiedToClipboard: false,
   });
 
   const validType = /^image\/*/;
@@ -127,8 +128,7 @@ const Main = () => {
   };
 
   const handleShareBtnClick = (fileURLToShare) => {
-    // setShareURL(fileURLToShare);
-    dispatch({ type: "error", payload: fileURLToShare });
+    dispatch({ type: "shareURL", payload: fileURLToShare });
   };
 
   return (
