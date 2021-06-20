@@ -1,10 +1,23 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 
+import { useLocation } from "react-router-dom";
 import landingPageThree from "../../assets/Images/landing-page-3.png";
 
+import * as ROUTES from "../../constants/routes";
+
 const Footer = () => {
-  return (
+  const location = useLocation();
+
+  return [
+    ROUTES.LANDING,
+    ROUTES.SIGN_IN,
+    ROUTES.PASSWORD_FORGET,
+    ROUTES.CREATE_ACCOUNT,
+    ROUTES.SIGN_OUT,
+    ROUTES.HOME,
+    ROUTES.PHOTOS,
+  ].includes(location.pathname) ? (
     <footer className="lp-footer border-t">
       <div className="footer-d-sh">
         <div>
@@ -66,6 +79,8 @@ const Footer = () => {
         </small>
       </div>
     </footer>
+  ) : (
+    <></>
   );
 };
 

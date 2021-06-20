@@ -33,8 +33,9 @@ const Main = () => {
       >
         <div className="col2">
           <h1 className="font-s-2 pad-2 pad-1-0">
-            <span className="span">Now</span>, You can collect your pics in one
-            place.
+            <span className="span">Now</span>, you can collect all your{" "}
+            <span className="p">p</span>ersonal <br />
+            captured moments in one place.
           </h1>
         </div>
         <div className="col1 position-rel pad-2 pad-s-0">

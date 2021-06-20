@@ -131,6 +131,19 @@ const Main = () => {
     dispatch({ type: "shareURL", payload: fileURLToShare });
   };
 
+  const handleDownloadBtnClick = async (fileURLToDownload, imageName) => {
+    const image = await fetch(fileURLToDownload);
+    const imageBlog = await image.blob();
+    const imageURL = URL.createObjectURL(imageBlog);
+
+    const link = document.createElement("a");
+    link.href = imageURL;
+    link.download = imageName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main
       className="min-h-100 main-photo-container"
@@ -144,6 +157,7 @@ const Main = () => {
         handleChange={handleChange}
         handleDeleteBtnClick={handleDeleteBtnClick}
         handleShareBtnClick={handleShareBtnClick}
+        handleDownloadBtnClick={handleDownloadBtnClick}
       />
     </main>
   );

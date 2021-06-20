@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import * as ROUTES from "./constants/routes";
 
@@ -18,6 +18,8 @@ import Footer from "./components/Footer/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 import PublicRoute from "./components/PublicRoute/index";
 
+import NotValidPath from "./components/NotValidPath/index";
+
 function App() {
   return (
     <Router>
@@ -28,30 +30,35 @@ function App() {
           <LandingPage />
         </PublicRoute>
 
-        <PublicRoute path={ROUTES.SIGN_IN}>
+        <PublicRoute exact path={ROUTES.SIGN_IN}>
           <SignInPage />
         </PublicRoute>
 
-        <PublicRoute path={ROUTES.PASSWORD_FORGET}>
+        <PublicRoute exact path={ROUTES.PASSWORD_FORGET}>
           <PasswordForgetPage />
         </PublicRoute>
 
-        <PublicRoute path={ROUTES.CREATE_ACCOUNT}>
+        <PublicRoute exact path={ROUTES.CREATE_ACCOUNT}>
           <CreateAccountPage />
         </PublicRoute>
 
-        <PrivateRoute path={ROUTES.HOME}>
+        <PrivateRoute exact path={ROUTES.HOME}>
           <HomePage />
         </PrivateRoute>
 
-        <PrivateRoute path={ROUTES.SIGN_OUT}>
+        <PrivateRoute exact path={ROUTES.SIGN_OUT}>
           <SignOut />
         </PrivateRoute>
 
-        <PrivateRoute path={ROUTES.PHOTOS}>
+        <PrivateRoute exact path={ROUTES.PHOTOS}>
           <PhotosPage />
         </PrivateRoute>
+
+        <Route path="*">
+          <NotValidPath />
+        </Route>
       </Switch>
+
       <Footer />
     </Router>
   );

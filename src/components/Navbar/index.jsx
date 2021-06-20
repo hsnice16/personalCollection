@@ -7,7 +7,15 @@ const Navbar = () => {
   const location = useLocation();
   const { auth } = useContext(FirebaseContext);
 
-  return (
+  return [
+    ROUTES.LANDING,
+    ROUTES.SIGN_IN,
+    ROUTES.PASSWORD_FORGET,
+    ROUTES.CREATE_ACCOUNT,
+    ROUTES.SIGN_OUT,
+    ROUTES.HOME,
+    ROUTES.PHOTOS,
+  ].includes(location.pathname) ? (
     <nav>
       <div className="nav-div">
         <div className="n-d-1">
@@ -47,6 +55,8 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+  ) : (
+    <></>
   );
 };
 

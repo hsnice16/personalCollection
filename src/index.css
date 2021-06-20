@@ -110,7 +110,8 @@ input[type="file"] {
   font-size: 2rem;
 }
 
-.n-d-1 span {
+.n-d-1 span,
+#section-2 .p {
   font-family: "Kaushan Script", cursive;
   color: var(--vivid-yellow);
   font-size: 3rem;
@@ -499,6 +500,11 @@ input[type="file"] {
   font-size: 3rem;
 }
 
+.div-no-pics {
+  text-align: center;
+  padding: 1rem;
+}
+
 input[type="file"]:hover + label,
 input[type="file"]:focus + label {
   cursor: pointer;
@@ -546,7 +552,7 @@ input[type="file"]:focus + label {
   width: fit-content;
   position: absolute;
   top: 40%;
-  left: 30%;
+  left: 15%;
   z-index: 10;
 }
 
@@ -554,7 +560,7 @@ input[type="file"]:focus + label {
   display: none;
 }
 
-.div-btn-container :is(.btn-delete, .btn-share) {
+.div-btn-container :is(.btn-delete, .btn-share, .btn-download) {
   margin: auto 0.5rem;
   font-size: 1.5rem;
   padding: 0.2rem 1rem;
@@ -565,7 +571,7 @@ input[type="file"]:focus + label {
   color: var(--white);
 }
 
-.div-btn-container :is(.btn-delete, .btn-share):hover {
+.div-btn-container :is(.btn-delete, .btn-share, .btn-download):hover {
   transform: scale(0.96);
 }
 
